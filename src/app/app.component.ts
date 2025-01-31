@@ -1,3 +1,4 @@
+
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
@@ -7,21 +8,10 @@ import { TasksComponent } from './tasks/tasks.component';
 
 @Component({
   selector: 'app-root',
-  // standalone : true, Angular >=19 einai panta true kai den xreiazetai na oristei
-  imports: [HeaderComponent, UserComponent, TasksComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  users = DUMMY_USERS;
-  selectedUserId?: string;
-
-  get selectedUser() {
-    return this.users.find((user) => user.id === this.selectedUserId);
-  }
-
-  onSelectUser(id: string) {
-    // console.log('Selected user with id: ' + id);
-    this.selectedUserId = id;
-  }
+  title = 'first-app';
 }
